@@ -83,8 +83,8 @@ def multiple_ints_with_conversion(first_value: Any, second_value: Any) -> int:
     """
     try:
         return int(first_value) * int(second_value)
-    except ValueError:
-        raise ValueError("Not valid input data")
+    except TypeError:
+        raise TypeError("Not valid input data")
 
 
 def is_word_in_text(word: str, text: str) -> bool:
@@ -103,7 +103,7 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    return word in text
+    return word in text.split()
 
 
 def some_loop_exercise() -> list:
