@@ -4,6 +4,7 @@ This is a list of functions that should be completed.
 
 from typing import Any
 from typing import List
+from string import ascii_lowercase
 
 
 class OurAwesomeException(Exception):
@@ -31,7 +32,7 @@ def is_two_objects_is_the_same_objects(first: Any, second: Any) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    return id(first) == id(second)
+    return first is second
 
 
 def multiple_ints(first_value: int, second_value: int) -> int:
@@ -103,7 +104,7 @@ def is_word_in_text(word: str, text: str) -> bool:
         >>> False
 
     """
-    return word in text.split()
+    return word in text
 
 
 def some_loop_exercise() -> list:
@@ -112,7 +113,7 @@ def some_loop_exercise() -> list:
     """
     result = []
     for i in range(0, 13):
-        if (i != 6) & (i != 7):
+        if (i != 6) and (i != 7):
             result.append(i)
     return result
 
@@ -140,10 +141,7 @@ def alphabet() -> dict:
         alphabet()
         >>> {"a": 1, "b": 2 ...}
     """
-    alf = {}
-    for i in range(ord('a'), ord('z') + 1):
-        alf.update({(i - ord('a') + 1): chr(i)})
-    return alf
+    return dict(zip(range(1, 27), ascii_lowercase))
 
 
 def simple_sort(data: List[int]) -> List[list]:
